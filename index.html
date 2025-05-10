@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open When Letters</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="hearts-container"></div>
+    
+    <div class="music-control">
+        <button id="musicToggle" class="music-btn">
+            <span class="music-icon">🎵</span>
+            <span class="music-text">Play Music</span>
+        </button>
+        <audio id="bgMusic" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>💌 Open When Letters</h1>
+            <p class="subtitle">Tap or click a card to open your letter</p>
+        </header>
+        
+        <div class="cards-grid">
+            <div class="card" data-emotion="sad">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h2>Sad 😔</h2>
+                        <p>Open when you're feeling down</p>
+                    </div>
+                    <div class="card-back">
+                        <p>My dearest,</p>
+                        <p>My love, your tears are sacred —
+                            let them fall like rain on my soul.
+                            
+                            Even the moon envies your gentle heart.
+                            When shadows gather, remember:
+                            my arms, though distant, are your shelter.
+                            
+                            Close your eyes, breathe slow —
+                            I'm right here, loving you quietly
+                            in the spaces between your sighs.</p>
+                        <p>With all my love,</p>
+                        <p>Me ❤️</p>
+                        <div class="reply-section">
+                            <h2 class="handwriting">Write a Reply</h2>
+                            <div class="reply-box">
+                                <textarea id="replyText-sad" placeholder="Write your message here..." class="handwriting"></textarea>
+                                <button id="saveReply-sad" class="handwriting">Save Reply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-emotion="angry">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h2>Angry 😡</h2>
+                        <p>Open when you're frustrated</p>
+                    </div>
+                    <div class="card-back">
+                        <p>Let the fire burn, my wild one,
+because even storms have their rhythm.
+
+Speak your truth — yell, cry, feel.
+I will listen, not to fix —
+but to hold your fury like a flame
+and kiss the smoke until it settles.
+
+We're not perfect. But we're real.
+And I will love you even in the thunder.</p>
+                        <div class="reply-section">
+                            <h2 class="handwriting">Write a Reply</h2>
+                            <div class="reply-box">
+                                <textarea id="replyText-angry" placeholder="Write your message here..." class="handwriting"></textarea>
+                                <button id="saveReply-angry" class="handwriting">Save Reply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-emotion="miss">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h2>Miss Me 😢</h2>
+                        <p>Open when you're missing me</p>
+                    </div>
+                    <div class="card-back">
+                        <p>I miss you, too.
+More than words, more than days.
+
+In the silence between heartbeats,
+in the echo of your laugh I long for,
+I exist — waiting, loving, hoping.
+
+Hold this letter like my hand.
+Read these words like my lips
+brushing your forehead.
+
+We'll meet again. And I'll make
+every second without you worth it.</p>
+                        <div class="reply-section">
+                            <h2 class="handwriting">Write a Reply</h2>
+                            <div class="reply-box">
+                                <textarea id="replyText-miss" placeholder="Write your message here..." class="handwriting"></textarea>
+                                <button id="saveReply-miss" class="handwriting">Save Reply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-emotion="happy">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h2>Happy 😊</h2>
+                        <p>Open when you're feeling joyful</p>
+                    </div>
+                    <div class="card-back">
+                        <p>Your smile is the spark
+that sets the universe alight.
+
+In every joy, I see the sun
+rise through your eyes.
+
+Dance in your laughter.
+Savor your win.
+And remember:
+I am endlessly proud of you.
+
+Let your joy become my joy —
+because nothing lights up my world
+more than you in bloom.</p>
+                        <div class="reply-section">
+                            <h2 class="handwriting">Write a Reply</h2>
+                            <div class="reply-box">
+                                <textarea id="replyText-happy" placeholder="Write your message here..." class="handwriting"></textarea>
+                                <button id="saveReply-happy" class="handwriting">Save Reply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

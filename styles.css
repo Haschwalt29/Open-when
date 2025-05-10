@@ -1,0 +1,330 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #fff5f5;
+    color: #4a4a4a;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 2rem;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    overflow-x: hidden;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #ff6b6b;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 300;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.card {
+    perspective: 1000px;
+    height: 400px;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-front {
+    background: linear-gradient(135deg, #ffd3d3 0%, #ffb3b3 100%);
+    color: #4a4a4a;
+}
+
+.card-back {
+    background: linear-gradient(135deg, #fff0f0 0%, #ffe0e0 100%);
+    transform: rotateY(180deg);
+    font-family: 'Dancing Script', cursive;
+    text-align: left;
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    overflow-y: auto;
+}
+
+.card-front h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ff6b6b;
+}
+
+.card-front p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.card-back p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    word-break: break-word;
+}
+
+/* Music Control Styles */
+.music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.music-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #ff6b6b;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.music-btn:hover {
+    background: #ff6b6b;
+    color: white;
+}
+
+.music-icon {
+    font-size: 1.2rem;
+}
+
+/* Floating Hearts Animation */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff6b6b;
+    transform: rotate(45deg);
+    opacity: 0.6;
+    animation: floatHeart 15s linear infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff6b6b;
+    border-radius: 50%;
+}
+
+.heart::before {
+    left: -10px;
+}
+
+.heart::after {
+    top: -10px;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: rotate(45deg) translateY(0) scale(0.3);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: rotate(45deg) translateY(-100vh) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Reply Section Styles */
+.reply-section {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.reply-section h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #ff6b6b;
+    margin-bottom: 1.5rem;
+}
+
+.reply-box {
+    max-width: 100%;
+    margin: 0 auto;
+    background: white;
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#replyText-sad,
+#replyText-angry,
+#replyText-miss,
+#replyText-happy {
+    width: 100%;
+    min-height: 60px;
+    max-height: 120px;
+    padding: 0.5rem;
+    border: 2px solid #ffd3d3;
+    border-radius: 10px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+    resize: vertical;
+    margin-bottom: 0.5rem;
+    box-sizing: border-box;
+}
+
+#saveReply-sad,
+#saveReply-angry,
+#saveReply-miss,
+#saveReply-happy {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+#saveReply-sad:hover,
+#saveReply-angry:hover,
+#saveReply-miss:hover,
+#saveReply-happy:hover {
+    background: #ff5252;
+    transform: scale(1.05);
+}
+
+/* Handwriting Style */
+.handwriting {
+    font-family: 'Dancing Script', cursive;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        height: 350px;
+    }
+
+    .music-control {
+        top: 10px;
+        right: 10px;
+    }
+
+    .music-btn {
+        padding: 8px 15px;
+    }
+
+    .reply-section h2 {
+        font-size: 1.2rem;
+    }
+
+    .reply-box {
+        padding: 0.5rem;
+    }
+
+    #replyText-sad,
+    #replyText-angry,
+    #replyText-miss,
+    #replyText-happy {
+        font-size: 1rem;
+        min-height: 40px;
+        max-height: 80px;
+    }
+} 
